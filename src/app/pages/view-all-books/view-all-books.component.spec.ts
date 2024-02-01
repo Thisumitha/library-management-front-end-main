@@ -23,17 +23,4 @@ describe('ViewAllBooksComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-export  class ViewAllBooksComponent implements OnInit{
-  private http;
-  public bookList:any={};
-  constructor(private httpCliant:HttpClient){
-    this.http=httpCliant;
-  }
-  ngOnInit(): void {
-      this.loadBooks();
-  }
-  loadBooks(){
-    this.http.get('')
-  }
 
-}
