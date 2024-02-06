@@ -29,11 +29,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Confromation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        If you want to update"{{selectedBook?.title}}"
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -57,23 +57,23 @@
         <form>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">ID:</label>
-            <input type="text" value={{selectedBook?.id}}  disabled class="form-control" id="recipient-name">
+            <input type="text" value={{selectedBook?.id}}   disabled class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">ISBN:</label>
-            <input type="text"value={{selectedBook?.isbn}} disabled class="form-control" id="recipient-name">
+            <input type="text" value={{selectedBook?.isbn}} disabled class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Title:</label>
-            <input type="text" value={{selectedBook?.title}} class="form-control" id="recipient-name">
+            <input type="text" [(ngModel)]="selectedBook && selectedBook.title" [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Category:</label>
-            <input type="text" value={{selectedBook?.category}} class="form-control" id="recipient-name">
+            <input type="text"[(ngModel)]="selectedBook&& selectedBook.category" [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">QTY:</label>
-            <input type="text" value={{selectedBook?.qty}} class="form-control" id="recipient-name">
+            <input type="number"[(ngModel)]="selectedBook&& selectedBook.qty" [ngModelOptions]="{standalone:true}"  class="form-control" id="recipient-name">
           </div>
           
         </form>
@@ -90,10 +90,6 @@
 
 <!-- Confromation  -->
 
-
-<!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -107,7 +103,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" (click)="saveBook()" class="btn btn-primary">save</button>
+        <button type="button" (click)="saveBook()" data-bs-dismiss="modal" class="btn btn-primary">save</button>
       </div>
     </div>
   </div>

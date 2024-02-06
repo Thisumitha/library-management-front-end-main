@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-all-books',
@@ -33,8 +33,13 @@ public selectedBook:any;
   delteBook(){
     let api="http://localhost:8080/book/"+this.selectedBook.id;
    this.http.delete(api,{responseType:'text'}).subscribe((Response:string)=>{
-    alert("deleted "+this.selectedBook.id);
+   
     this.loadBooks();
+    Swal.fire({
+      title: "Deleted!",
+      text: `${this.selectedBook.title}`,
+      icon: "success"
+    });
     this.selectedBook=null;
    })
   }
