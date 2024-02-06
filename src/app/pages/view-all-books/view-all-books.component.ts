@@ -43,6 +43,14 @@ public selectedBook:any;
     console.log(this.selectedBook)
     
   }
+  saveBook(){
+    let postApi="http://localhost:8080/book/add";
+    this.http.post(postApi,this.selectedBook).subscribe(data=>{
+      console.log("saved!");
+      this.loadBooks();
+      this.selectedBook=null;
+    })
+  }
   
 
 }
